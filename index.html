@@ -63,6 +63,21 @@
 .dot.active {
   background-color: #010c5e; /* cor da bolinha ativa */
 }
+
+.carrossel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.legenda-slide {
+  margin-top: 15px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
   </style>
 </head>
 <body style="margin-top: 100px;">
@@ -94,35 +109,35 @@
     <div class="carrossel-item" style="background: lightgoldenrodyellow;">3</div>
     <div class="carrossel-item" style="background: lightpink;">4</div>
   </div>
+
+<div id="legenda-slide" class="legenda-slide">Legenda do slide 1</div>
+
   <button class="seta direita" onclick="moverCarrossel(1)">&#9654;</button>
 </div>
 <div class="dots-container" id="dots">
   <!-- Bolinhas vão aqui -->
 </div>
 <script>
-  let index = 0;
-  function moverCarrossel(direcao) {
-    const carrossel = document.getElementById('carrossel');
-    const total = carrossel.children.length;
-    index += direcao;
-    if (index < 0) index = 0;
-    if (index > total - 1) index = total - 1;
-    const deslocamento = index * -(610); // largura + margin
-    carrossel.style.transform = `translateX(${deslocamento}px)`;
-  }
-
-  const carrossel = document.getElementById('carrossel');
+const carrossel = document.getElementById('carrossel');
 const dotsContainer = document.getElementById('dots');
+const legendaSlide = document.getElementById('legenda-slide');
 const total = carrossel.children.length;
 
+const legendas = [
+  "Legenda do slide 1",
+  "Legenda do slide 2",
+  "Legenda do slide 3",
+  "Legenda do slide 4"
+];
 
-// Cria as bolinhas dinamicamente
+let index = 0;
+
+// Cria as bolinhas dinamicamente - EXECUTA APENAS UMA VEZ
 for (let i = 0; i < total; i++) {
   const dot = document.createElement('div');
   dot.classList.add('dot');
   if (i === 0) dot.classList.add('active');
 
-  // Permite clicar na bolinha para navegar direto
   dot.addEventListener('click', () => {
     index = i;
     atualizarCarrossel();
@@ -139,8 +154,11 @@ function moverCarrossel(direcao) {
 }
 
 function atualizarCarrossel() {
-  const deslocamento = index * -(610);
+  const deslocamento = index * -(610); // ajuste conforme largura + margem dos seus slides
   carrossel.style.transform = `translateX(${deslocamento}px)`;
+
+  // Atualiza legenda
+  legendaSlide.textContent = legendas[index];
 
   // Atualiza bolinhas
   const dots = dotsContainer.children;
