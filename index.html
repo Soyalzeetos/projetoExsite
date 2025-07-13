@@ -8,7 +8,7 @@
 
     <style>
     .carrossel-container {
-      width: 600px;
+      width: 1000px;
       overflow: hidden;
       position: relative;
         margin: 0 auto;
@@ -18,7 +18,7 @@
       transition: transform 0.3s ease-in-out;
     }
     .carrossel-item {
-      min-width: 600px;
+      min-width: 1000px;
       height: 400px;
       background: lightblue;
       margin-right: 10px;
@@ -154,7 +154,7 @@ function moverCarrossel(direcao) {
 }
 
 function atualizarCarrossel() {
-  const deslocamento = index * -(610); // ajuste conforme largura + margem dos seus slides
+  const deslocamento = index * -(1010); // ajuste conforme largura + margem dos seus slides
   carrossel.style.transform = `translateX(${deslocamento}px)`;
 
   // Atualiza legenda
