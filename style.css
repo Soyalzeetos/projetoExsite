@@ -1,8 +1,8 @@
-.carrossel-container {
+    .carrossel-container {
       width: 1000px;
       overflow: hidden;
       position: relative;
-        margin: 0 auto;
+      margin: 0 auto;
     }
     .carrossel {
       display: flex;
@@ -28,7 +28,20 @@
       padding: 10px;
       cursor: pointer;
       z-index: 1;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
     }
+
+    .seta:hover {
+      background: #db8b58;
+    }
+
+    .seta:active {
+      background: #db8b58;
+      transform: translateY(-50%) scale(0.95); /* mantém centralizado */
+    }
+
     .seta.esquerda {
       left: 10px;
     }
@@ -36,36 +49,44 @@
       right: 10px;
     }
     .dots-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-  gap: 10px;
-}
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 10px;
+    }
 
-.dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #ccc;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #4d569b; /* cor da bolinha */
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-.dot.active {
-  background-color: #010c5e; /* cor da bolinha ativa */
-}
+    .dot.active {
+      background-color: #00094e; /* cor da bolinha ativa */
+    }
 
-.carrossel-item img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
-}
+    .carrossel-item img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
 
-.legenda-slide {
-  margin-top: 15px;
-  font-size: 20px;
-  text-align: center;
-  font-weight: bold;
-  color: #333;
-}
+    .legenda-slide {
+      margin-top: 15px;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .faixa-carrossel {
+      background: #ed7e39; /* cor da faixa */
+      width: 100%;
+      padding: 30px 0; /* altura da faixa */
+      display: flex;
+      justify-content: center; /* centraliza o carrossel */
+    }
