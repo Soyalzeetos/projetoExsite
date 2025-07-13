@@ -6,6 +6,7 @@
     <title>Center Ferramentas</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body style="margin-top: 100px;">
     <h1>Ferramentas de Desenvolvimento</h1>
@@ -44,60 +45,12 @@
 <div class="dots-container" id="dots">
   <!-- Bolinhas vão aqui -->
 </div>
-<script>
-const carrossel = document.getElementById('carrossel');
-const dotsContainer = document.getElementById('dots');
-const legendaSlide = document.getElementById('legenda-slide');
-const total = carrossel.children.length;
 
-const legendas = [
-  "Legenda do slide 1",
-  "Legenda do slide 2",
-  "Legenda do slide 3",
-  "Legenda do slide 4"
-];
-
-let index = 0;
-
-// Cria as bolinhas dinamicamente - EXECUTA APENAS UMA VEZ
-for (let i = 0; i < total; i++) {
-  const dot = document.createElement('div');
-  dot.classList.add('dot');
-  if (i === 0) dot.classList.add('active');
-
-  dot.addEventListener('click', () => {
-    index = i;
-    atualizarCarrossel();
-  });
-
-  dotsContainer.appendChild(dot);
-}
-
-function moverCarrossel(direcao) {
-  index += direcao;
-  if (index < 0) index = 0;
-  if (index > total - 1) index = total - 1;
-  atualizarCarrossel();
-}
-
-function atualizarCarrossel() {
-  const deslocamento = index * -(1010); // ajuste conforme largura + margem dos seus slides
-  carrossel.style.transform = `translateX(${deslocamento}px)`;
-
-  // Atualiza legenda
-  legendaSlide.textContent = legendas[index];
-
-  // Atualiza bolinhas
-  const dots = dotsContainer.children;
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].classList.toggle('active', i === index);
-  }
-}
-</script>
 </div>
 
     <footer style="background: #fd6101; padding: 20px; text-align: center; color: #fff; position: fixed; bottom: 0; width: 100%;">
         <p>&copy; 2023 Center Ferramentas. Todos os direitos reservados.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
