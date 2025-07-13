@@ -5,6 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Center Ferramentas</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+    .carrossel-container {
+      width: 600px;
+      overflow: hidden;
+      position: relative;
+        margin: 0 auto;
+    }
+    .carrossel {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+    }
+    .carrossel-item {
+      min-width: 600px;
+      height: 400px;
+      background: lightblue;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+    }
+    .seta {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .seta.esquerda {
+      left: 10px;
+    }
+    .seta.direita {
+      right: 10px;
+    }
+    .dots-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #010c5e; /* cor da bolinha ativa */
+}
+  </style>
 </head>
 <body style="margin-top: 100px;">
     <h1>Ferramentas de Desenvolvimento</h1>
@@ -13,16 +72,86 @@
         <span style="color: #fff; font-weight: bold; font-size: 2.5em; margin-right: 40px; font-family: 'Montserrat', Arial, sans-serif;">Center Ferramentas</span>
     </div>
     <div style="display: flex; align-items: center; flex: 1; justify-content: center;">
-    <input type="text" placeholder="Pesquisar..." style="padding: 8px; border-radius: 5px 0 0 5px; border: none; width: 100%; max-width: 700px;">
-    <span style="background: #fff; border-radius: 0 5px 5px 0; padding: 8px 12px; margin-left: -4px; color: #888; font-size: 1.2em; cursor: pointer;">🔍</span>
+    <input type="text" placeholder="Pesquisar..." style="padding: 8px 12px; border-radius: 9px 0 0 9px; border: none; width: 100%; max-width: 700px; height: 32px;">
+    <img src="assets/lupa.png" alt="Lupa" width="32" style="border-radius: 9px 5px 5px 9px; margin-left: -40px; vertical-align: middle; height: 32px;">
 </div>
     <div style="display: flex; align-items: center;">
-        <a href="#" title="Perfil" style="color: #fff; font-size: 1.5em; margin-right: 20px; text-decoration: none;">👤</a>
-        <a href="#" title="Carrinho" style="color: #fff; font-size: 1.5em; text-decoration: none;">
-            <img src="assets/assets/Carrinho-de-Compras.png" alt="" width="32" style="vertical-align: middle;">
-        </a>
-    </div>
+    <a href="#" title="Perfil" style="margin-right: 20px; text-decoration: none;">
+        <img src="assets/perfil.png" alt="Perfil" width="32" style="vertical-align: middle;">
+    </a>
+    <a href="#" title="Carrinho" style="color: #fff; font-size: 1.5em; text-decoration: none;">
+        <img src="assets/Carrinho-de-Compras.png" alt="" width="32" style="vertical-align: middle;">
+    </a>
+</div>
 </nav>
-    <p>Use as ferramentas abaixo para gerenciar seu projeto:</p>
+
+
+    <div class="carrossel-container">
+  <button class="seta esquerda" onclick="moverCarrossel(-1)">&#9664;</button>
+  <div class="carrossel" id="carrossel">
+    <div class="carrossel-item" style="background: lightcoral;"><span class="texto-slide">Texto do slide 1</span></div>
+    <div class="carrossel-item" style="background: lightseagreen;">2</div>
+    <div class="carrossel-item" style="background: lightgoldenrodyellow;">3</div>
+    <div class="carrossel-item" style="background: lightpink;">4</div>
+  </div>
+  <button class="seta direita" onclick="moverCarrossel(1)">&#9654;</button>
+</div>
+<div class="dots-container" id="dots">
+  <!-- Bolinhas vão aqui -->
+</div>
+<script>
+  let index = 0;
+  function moverCarrossel(direcao) {
+    const carrossel = document.getElementById('carrossel');
+    const total = carrossel.children.length;
+    index += direcao;
+    if (index < 0) index = 0;
+    if (index > total - 1) index = total - 1;
+    const deslocamento = index * -(610); // largura + margin
+    carrossel.style.transform = `translateX(${deslocamento}px)`;
+  }
+
+  const carrossel = document.getElementById('carrossel');
+const dotsContainer = document.getElementById('dots');
+const total = carrossel.children.length;
+
+
+// Cria as bolinhas dinamicamente
+for (let i = 0; i < total; i++) {
+  const dot = document.createElement('div');
+  dot.classList.add('dot');
+  if (i === 0) dot.classList.add('active');
+
+  // Permite clicar na bolinha para navegar direto
+  dot.addEventListener('click', () => {
+    index = i;
+    atualizarCarrossel();
+  });
+
+  dotsContainer.appendChild(dot);
+}
+
+function moverCarrossel(direcao) {
+  index += direcao;
+  if (index < 0) index = 0;
+  if (index > total - 1) index = total - 1;
+  atualizarCarrossel();
+}
+
+function atualizarCarrossel() {
+  const deslocamento = index * -(610);
+  carrossel.style.transform = `translateX(${deslocamento}px)`;
+
+  // Atualiza bolinhas
+  const dots = dotsContainer.children;
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.toggle('active', i === index);
+  }
+}
+</script>
+</div>
+    <footer style="background: #fd6101; padding: 20px; text-align: center; color: #fff; position: fixed; bottom: 0; width: 100%;">
+        <p>&copy; 2023 Center Ferramentas. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
