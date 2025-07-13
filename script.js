@@ -5,7 +5,7 @@ const legendaSlide = document.getElementById('legenda-slide');
 const total = carrossel.children.length;
 
 const legendas = [
-  "Legenda do slide 1",
+  "Chave De Impacto Elétrica - Encaixe 3/4 220v R$ 2.199,00 Em estoque Marca: DEWALT",
   "Legenda do slide 2",
   "Legenda do slide 3",
   "Legenda do slide 4"
