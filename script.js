@@ -47,3 +47,19 @@ function atualizarCarrossel() {
     dots[i].classList.toggle('active', i === index);
   }
 }
+
+const searchInput = document.querySelector('#pesquisa');
+const produtos = document.querySelectorAll('.produto');
+
+searchInput.addEventListener('input', function() {
+  const termo = this.value.toLowerCase();
+  
+  produtos.forEach(produto => {
+    const textoProduto = produto.innerText.toLowerCase();
+    if (textoProduto.includes(termo)) {
+      produto.style.display = '';
+    } else {
+      produto.style.display = 'none';
+    }
+  });
+});
