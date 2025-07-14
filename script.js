@@ -47,7 +47,7 @@ function atualizarCarrossel() {
     dots[i].classList.toggle('active', i === index);
   }
 }
-
+//Barra de pesquisa funcional
 const searchInput = document.querySelector('#pesquisa');
 const produtos = document.querySelectorAll('.produto');
 
