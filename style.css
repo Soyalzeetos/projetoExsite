@@ -232,3 +232,15 @@
   color: #666;
   margin: 5px 0 0;
 }
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-y: scroll; /* força sempre mostrar barra */
+}
