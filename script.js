@@ -9,7 +9,7 @@ const legendas = [
   "Legenda do slide 2",
   "Legenda do slide 3",
   "Legenda do slide 4"
-];
+];//Altera as legendas conforme necessário aqui
 
 let index = 0;
 
@@ -35,7 +35,7 @@ function moverCarrossel(direcao) {
 }
 
 function atualizarCarrossel() {
-  const deslocamento = index * -(1010); // ajuste conforme largura + margem dos seus slides
+  const deslocamento = index * -(1010); // Pablo: ajuste conforme largura + margem dos seus slides
   carrossel.style.transform = `translateX(${deslocamento}px)`;
 
   // Atualiza legenda
