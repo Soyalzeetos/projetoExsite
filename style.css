@@ -1,6 +1,8 @@
     body {
       background: #010c5e;
-      padding-top: 150px; /* espaço para o menu fixo */
+      padding-top: 150px; /* ajuste: altura da top-bar + navbar */ /* espaço para o menu fixo */
+      overflow-y: scroll;
+      font-family: 'Montserrat', Arial, sans-serif
     }
     .carrossel-container {
       width: 1000px;
@@ -92,13 +94,16 @@
       width: 100%;
       padding: 20px 0; /* altura da faixa */
       display: flex;
-      justify-content: center; /* centraliza o carrossel */
+      justify-content: center;
+      margin: 0px; /* centraliza o carrossel */
     }
 
     .faixa-produtos {
   background: #00094e;
   padding: 30px;
   margin-top: 40px;
+  width: 100%;
+  margin: 0;
 }
 
 .faixa-produtos h2 {
@@ -241,6 +246,19 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  overflow-y: scroll; /* força sempre mostrar barra */
+
+.top-bar {
+  background: #010c5e; /* azul escuro, você pode escolher */
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 8px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  box-sizing: border-box;
 }
