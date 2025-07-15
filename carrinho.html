@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Center Ferramentas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="carrinho.css">
+</head>
+<body>
+    <div class="top-bar">
+        <a href="https://wa.me/+5534991975188" style="color: #ffffff; display: flex; align-items: center; text-decoration: none;"><span>📞 Telefone: (34) 99197-5188</span></a>
+        <span>🚚 Endereço: Av. Juscelino Kubitschek, nº 596, Bairro Estudantil</span>
+        <span>⏰ Entrar em contato</span>
+    </div>
+
+    <nav style="background: #fd6101; padding: 40px; width: 100%; box-sizing: border-box; position: fixed; top: 0; left: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="assets/logo.png" alt="Logo Center Ferramentas" style="height: 100px; margin-right: 15px;">
+                <span style="color: #fff; font-weight: bold; font-size: 2.5em; margin-right: 40px; font-family: 'Montserrat', Arial, sans-serif;">Center Ferramentas</span>
+            </a>
+        </div>
+        <div style="display: flex; align-items: center; flex: 1; justify-content: center;">
+            <input id="pesquisa" placeholder="Pesquisar..." style="padding: 8px 12px; border-radius: 9px 0 0 9px; border: none; width: 100%; max-width: 700px; height: 40px;">
+            <img src="assets/lupa.png" alt="Lupa" width="32" style="border-radius: 9px 5px 5px 9px; margin-left: -40px; vertical-align: middle; height: 32px;">
+        </div>
+        <div style="display: flex; align-items: center;">
+            <a href="profile.html" title="Perfil" style="margin-right: 20px; text-decoration: none;">
+                <img src="assets/perfil.png" alt="Perfil" width="50" style="vertical-align: middle;">
+            </a>
+            <a href="carrinho.html" title="Carrinho" style="color: #fff; font-size: 1.5em; text-decoration: none;">
+                <img src="assets/Carrinho-de-Compras.png" alt="Carrinho" width="50" style="vertical-align: middle;">
+                <span id="contador-carrinho" class="contador-carrinho">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-carrinho">
+        <h1>Meu Carrinho</h1>
+        
+        <div class="carrinho-content">
+            <div class="itens-carrinho" id="itens-carrinho">
+                <div class="carrinho-vazio" id="carrinho-vazio">
+                    <img src="assets/Carrinho-de-Compras.png" alt="Carrinho vazio" class="icone-carrinho-vazio">
+                    <h2>Seu carrinho está vazio</h2>
+                    <p>Adicione produtos para começar suas compras!</p>
+                    <a href="index.html" class="btn-continuar-comprando">Continuar Comprando</a>
+                </div>
+            </div>
+
+            <div class="resumo-pedido" id="resumo-pedido" style="display: none;">
+                <h3>Resumo do Pedido</h3>
+                <div class="linha-resumo">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="linha-resumo">
+                    <span>Frete:</span>
+                    <span id="frete">Grátis</span>
+                </div>
+                <div class="linha-resumo total">
+                    <span>Total:</span>
+                    <span id="total">R$ 0,00</span>
+                </div>
+                <button class="btn-finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+                <a href="index.html" class="btn-continuar-comprando-resumo">Continuar Comprando</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <footer>
+            <p>&copy; 2025 Center Ferramentas. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="carrinho.js"></script>
+</body>
+</html>
+

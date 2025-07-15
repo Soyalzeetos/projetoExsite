@@ -63,3 +63,29 @@ searchInput.addEventListener('input', function() {
     }
   });
 });
+
+// Função para adicionar produto ao carrinho na página inicial
+function adicionarProdutoAoCarrinho(id, nome, preco, imagem) {
+    const produto = {
+        id: id,
+        nome: nome,
+        preco: preco,
+        imagem: imagem
+    };
+    
+    // Usar a função do carrinho.js
+    if (typeof adicionarAoCarrinho === 'function') {
+        adicionarAoCarrinho(produto);
+    } else {
+        // Fallback caso o carrinho.js não esteja carregado
+        console.error('Função adicionarAoCarrinho não encontrada');
+    }
+}
+
+// Atualizar contador do carrinho quando a página carregar
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof atualizarContadorCarrinho === 'function') {
+        atualizarContadorCarrinho();
+    }
+});
+

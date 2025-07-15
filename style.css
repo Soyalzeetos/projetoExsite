@@ -262,3 +262,22 @@ html {
   z-index: 2000;
   box-sizing: border-box;
 }
+
+/* Estilos para o contador do carrinho */
+.contador-carrinho {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #dc3545;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 1001;
+}
+
