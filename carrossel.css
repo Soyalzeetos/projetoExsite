@@ -1,0 +1,140 @@
+/* Carrossel */
+.carousel-section {
+    margin-top: 100px;
+    background-color: #010c5e;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-container {
+    position: relative;
+    height: 500px;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    position: relative;
+}
+
+.slide-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.slide-content h2 {
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fd6101;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.slide-content h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.slide-content p {
+    font-size: 18px;
+    color: #f1f1f1;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.btn-slide {
+    background: linear-gradient(45deg, #fd6101, #e55501);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(253, 97, 1, 0.3);
+}
+
+.btn-slide:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(253, 97, 1, 0.4);
+}
+
+.slide-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-image img {
+    max-width: 400px;
+    max-height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.nav-btn {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background-color: rgba(253, 97, 1, 0.8);
+    transform: scale(1.1);
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #fd6101;
+    transform: scale(1.2);
+}
